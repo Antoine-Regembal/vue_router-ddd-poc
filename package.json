@@ -1,0 +1,36 @@
+{
+  "name": "poc-vuerouter-hexagonal",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc -b",
+    "check:boundaries": "depcruise src --config .dependency-cruiser.cjs",
+    "graph:modules": "depcruise src --config .dependency-cruiser.cjs --output-type dot | dot -T svg > modules-graph.svg"
+  },
+  "dependencies": {
+    "@pinia/colada": "1.3.1",
+    "pinia": "3.0.4",
+    "vue": "^3.5.40",
+    "vue-router": "5.2.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "10.5.0",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "dependency-cruiser": "18.1.0",
+    "msw": "2.15.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.2.0",
+    "vue-tsc": "3.3.9"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
